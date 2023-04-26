@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Wordle</title>
+    <script type="module" src="App.js" defer></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="game">Wordle.</div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Devs</button>
+        <div class="dropdown-content">
+          <a href="https://github.com/PigeonTheDev">Ulaş Ayçiçek</a>
+          <a href="https://github.com/iamnora">İtibar Göksu Özkan</a>
+        </div>
+      </div>
+      <a>First Component</a>
+      <a>Second Component</a>
+    </div>
+
+    <div class="formWrapper">
+      <div id="form" class="form">
+        Enter Your Guess:
+        <input id="input" type="text" name="input" size="10" />
+      </div>
+
+      <button id="button" class="btn" type="button">Check!</button>
+    </div>
+
+    <div id="guessBoxes" class="guessBoxesWrapper">
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+      <div class="guessBoxesRow">
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+        <div class="guessBox"></div>
+      </div>
+    </div>
+    <div class="popup" onclick="showPopup()">
+      Click me!
+      <span class="popuptext" id="myPopup">Popup text...</span>
+    </div>
+    <div class="GuessesWrapper">
+      <div class="Guess"></div>
+    </div>
+    <div id="letters" class="letters">
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+      <li>Ç</li>
+      <li>D</li>
+      <li>E</li>
+      <li>F</li>
+      <li>G</li>
+      <li>Ğ</li>
+      <li>H</li>
+      <li>I</li>
+      <li>İ</li>
+      <li>J</li>
+      <li>K</li>
+      <li>L</li>
+      <li>M</li>
+      <li>N</li>
+      <li>O</li>
+      <li>Ö</li>
+      <li>P</li>
+      <li>R</li>
+      <li>S</li>
+      <li>Ş</li>
+      <li>T</li>
+      <li>U</li>
+      <li>Ü</li>
+      <li>V</li>
+      <li>Y</li>
+      <li>Z</li>
+    </div>
+  </body>
+</html>
