@@ -13,54 +13,75 @@ const button = document.getElementById("button");
 
 let guessCount = 0;
 
+
 button.addEventListener("click", (event) => {
   const input = form.value;
+  let isString = false;
+  const userAnswerArr = input.toUpperCase().split("");
 
-  if (guessCount === 6) {
-    button.className = "btnDisabled";
-    console.log("STOPPED");
-    if (answer !== input.toUpperCase()) {
-      alert(`You couldn't find the word!\n The word was ${answer}`);
+
+  for (let i = 0; i < userAnswerArr.length; i++) {
+    if (isNaN(parseInt(userAnswerArr[i]))) {
+      console.log("number değilim")
+      isString = true;
     }
-  } else {
-    console.log("CLICKED");
-    const guess = guesses[guessCount].children;
-    guessCount++;
+    else{
+      isString = false;
+      break;
+    }
+  }
 
-    const userAnswerArr = input.toUpperCase().split("");
-    console.log(input);
-    for (let i = 0; i < userAnswerArr.length; i++) {
-      //looping the entered words letters
+  if (input.length !== 5 || !isString) {
+    alert("You must enter 5 letter word!");
+    return;
+  }
 
-      guess[i].innerHTML = `${userAnswerArr[i]}`;
+  if (guessCount === 5) {
+    setTimeout(function () {
+      button.className = "btnDisabled";
+      button.disabled = true;
+      if (answer !== input.toUpperCase()) {
+        alert(`You couldn't find the word!\n The word was ${answer}`);
+        window.location.reload();
+      }
+    }, 0);
+  }
 
-      const answerObj = findObj(userAnswerArr[i], i, answer);
-      for (let j = 0; j < elements.length; j++) {
-        //looping the keys below
+  const guess = guesses[guessCount].children;
+  guessCount++;
 
-        if (elements[j].innerHTML === answerObj.letter) {
-          if (answerObj.rightPlace) {
-            elements[j].style.backgroundColor = "green";
-            guess[i].style.backgroundColor = "green";
-            break;
-          }
-          if (answerObj.include) {
-            elements[j].style.backgroundColor = "yellow";
-            guess[i].style.backgroundColor = "yellow";
-            break;
-          } else {
-            elements[j].style.backgroundColor = "gray";
-            break;
-          }
+  for (let i = 0; i < userAnswerArr.length; i++) {
+    //looping the entered words letters
+
+    guess[i].innerHTML = `${userAnswerArr[i]}`;
+
+    const answerObj = findObj(userAnswerArr[i], i, answer);
+    for (let j = 0; j < elements.length; j++) {
+      //looping the keys below
+
+      if (elements[j].innerHTML === answerObj.letter) {
+        if (answerObj.rightPlace) {
+          elements[j].style.backgroundColor = "green";
+          guess[i].style.backgroundColor = "green";
           break;
         }
+        if (answerObj.include) {
+          elements[j].style.backgroundColor = "#ffa000";
+          guess[i].style.backgroundColor = "#ffa000";
+          break;
+        } else {
+          elements[j].style.backgroundColor = "gray";
+          break;
+        }
+        break;
       }
     }
   }
+
   if (answer === input.toUpperCase()) {
-    function showPopup() {
-      const popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
+    setTimeout(function () {
+      alert("Congratulations! You Won 🏆!");
+    }, 0);
+    window.location.reload();
   }
 });
