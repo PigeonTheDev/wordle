@@ -22,7 +22,6 @@ button.addEventListener("click", (event) => {
 
   for (let i = 0; i < userAnswerArr.length; i++) {
     if (isNaN(parseInt(userAnswerArr[i]))) {
-      console.log("number değilim")
       isString = true;
     }
     else{
